@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">移动OA</string>
+    <string name="tab_menu_contacts">通讯录</string>
+    <string name="tab_menu_message">公文</string>
+    <string name="tab_menu_facility">功能</string>
+    <string name="tab_menu_mysetting">我的</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

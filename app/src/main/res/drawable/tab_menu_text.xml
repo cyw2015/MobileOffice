@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<!--文字颜色资源-->
+        <item android:color="@color/text_yellow" android:state_checked="true"/>
+        <item android:color="@color/text_gray"/>
+</selector>

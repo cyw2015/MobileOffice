@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myspace="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e2e4fe"
+    >
+    <com.race604.flyrefresh.FlyRefreshLayout
+        android:id="@+id/fly_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        myspace:phl_header_height="80dp"
+        myspace:phl_header_shrink_height="50dp"
+        myspace:phl_header_expand_height="100dp"
+        android:background="#e2e4fe"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="24dp"/>
+    </com.race604.flyrefresh.FlyRefreshLayout>
+</LinearLayout>
