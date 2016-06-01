@@ -3,6 +3,7 @@ package com.cyw.mobileoffice.fragment;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -14,8 +15,10 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 
 import com.cyw.mobileoffice.R;
+import com.cyw.mobileoffice.activity.DocDetailActivity;
 import com.cyw.mobileoffice.adapter.MessageAdapter;
 import com.cyw.mobileoffice.entity.Document;
+import com.cyw.mobileoffice.listener.OnRecylerItemClickLitener;
 import com.cyw.mobileoffice.util.AppURL;
 import com.cyw.mobileoffice.view.SpaceItemDecoration;
 import com.race604.flyrefresh.FlyRefreshLayout;
@@ -50,7 +53,22 @@ public class MessageFragment extends Fragment implements FlyRefreshLayout.OnPull
         mListView.setLayoutManager(mLayoutManager);
         mListView.addItemDecoration(new SpaceItemDecoration(20));//设置间距
         mAdapter = new MessageAdapter(getContext(),mDataSet);
+        mAdapter.setOnItemClickLitener(new OnRecylerItemClickLitener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Document doc= mDataSet.get(position);
+                Intent it  = new Intent(getContext(), DocDetailActivity.class);
+                it.putExtra("docCode",doc.getDocCode());
+                getContext().startActivity(it);
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+        });
         mListView.setAdapter(mAdapter);
+//        mListView.addOnItemTouchListener();
         View actionButton = mFlylayout.getHeaderActionButton();
         if(actionButton!=null){
             actionButton.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +97,7 @@ public class MessageFragment extends Fragment implements FlyRefreshLayout.OnPull
                         JSONArray arr = new JSONArray(rows);
                         for (int i = 0; i < arr.length(); i++) {
                             Document Document = new Document();
+                            Document.setDocCode(arr.getJSONObject(i).getString("doc_code"));
                             Document.setTitle(arr.getJSONObject(i).getString("doc_title"));
                             Document.setCreaterName(arr.getJSONObject(i).getString("creater_name"));
                             Document.setDate(arr.getJSONObject(i).getString("pubTime"));

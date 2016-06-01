@@ -69,7 +69,7 @@ public class OfficeActivity extends AppCompatActivity implements RadioGroup.OnCh
                 vpager.setCurrentItem(PAGE_ONE);
                 break;
             case R.id.rb_message:
-                txt_topbar.setText("公文");
+                txt_topbar.setText("公文列表");
                 vpager.setCurrentItem(PAGE_TWO);
                 break;
             case R.id.rb_facility:

@@ -132,11 +132,13 @@ public class LoginActivity extends AppCompatActivity {
             }
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
+                myDialog.cancel();
                 Toast.makeText(LoginActivity.this,"登录失败,请检查网络",Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onCancelled(CancelledException cex) {
                 Toast.makeText(LoginActivity.this,"登录取消",Toast.LENGTH_SHORT).show();
+                myDialog.cancel();
             }
             @Override
             public void onFinished() {
