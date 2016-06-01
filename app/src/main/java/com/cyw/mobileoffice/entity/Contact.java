@@ -1,15 +1,72 @@
 package com.cyw.mobileoffice.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by cyw on 2016/5/28.
  */
-public class Contact  {
-    private  String phone;
-    private String url;
+public class Contact  implements Serializable{
+    private String code;
     private String name;
-    private String position;
+    private String sex;
+    private String deptCode;
     private String department;
+    private String position;
+    private String postCode;
+    private String birthDay;
     private String email;
+    private String address;
+    private  String phone;
+    private String url;//图片
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getDeptCode() {
+        return deptCode;
+    }
+
+    public void setDeptCode(String deptCode) {
+        this.deptCode = deptCode;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
+    }
+
+    public String getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public Contact(){}
     public Contact( String name, String url, String position,String phone) {
         this.phone = phone;

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray">
+
+    <RelativeLayout
+        android:id="@+id/ly_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/bg_topbar">
+
+        <TextView
+            android:id="@+id/tv_topbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="联系人详情"
+            android:textColor="@color/text_topbar" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/div_white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ly_top_bar"
+        android:background="@color/bg_white">
+
+        <ImageView
+            android:id="@+id/iv_contact_detail"
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/emp" />
+
+        <TextView
+            android:id="@+id/tv_name_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_contact_detail"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="姓名"
+            android:textColor="#cc000000"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@id/tv_name_detail"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/div_white" />
+    </RelativeLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_header"
+        android:background="@color/bg_white"
+        android:shrinkColumns="1"
+        android:stretchColumns="1">
+
+        <TableRow android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_marginStart="30dp"
+                android:gravity="center"
+                android:text="部门:"
+                android:textColor="#cc000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_depart_name"
+                android:gravity="center"
+                android:text="部门名称"
+                android:textColor="#cc000000"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_marginStart="30dp"
+                android:gravity="center"
+                android:text="岗位:"
+                android:textColor="#cc000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_posi_name"
+                android:gravity="center"
+                android:text="岗位名称"
+                android:textColor="#cc000000"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_marginStart="30dp"
+                android:gravity="center"
+                android:text="联系电话:"
+                android:textColor="#cc000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/tv_phone_detail"
+                android:text="18855583802"
+                android:textColor="#cc000000"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_marginStart="30dp"
+                android:gravity="center"
+                android:text="邮箱:"
+                android:textColor="#cc000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/tv_email"
+                android:text="liqiu12230@sina.cn"
+                android:textColor="#cc000000"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_marginStart="30dp"
+                android:gravity="center"
+                android:text="住址:"
+                android:textColor="#cc000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/tv_address"
+                android:text="积分基地"
+                android:textColor="#cc000000"
+                android:textSize="18sp" />
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

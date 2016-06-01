@@ -24,9 +24,10 @@
             android:name=".activity.OfficeActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activity.BaseActivity" />
-        <activity android:name=".activity.DocDetailActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
+        <activity android:name=".activity.DocDetailActivity" android:theme="@style/Theme.AppCompat.NoActionBar"
             />
+        <activity android:name=".activity.ContactDetailActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
 </manifest>

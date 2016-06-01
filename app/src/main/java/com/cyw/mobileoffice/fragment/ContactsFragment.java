@@ -1,8 +1,8 @@
 package com.cyw.mobileoffice.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,8 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cyw.mobileoffice.R;
+import com.cyw.mobileoffice.activity.ContactDetailActivity;
 import com.cyw.mobileoffice.adapter.ContactAdapter;
 import com.cyw.mobileoffice.entity.Contact;
+import com.cyw.mobileoffice.listener.OnRecylerItemClickLitener;
 import com.cyw.mobileoffice.util.AppURL;
 import com.cyw.mobileoffice.view.SpaceItemDecoration;
 
@@ -31,7 +33,6 @@ public class ContactsFragment extends Fragment {
     private RecyclerView rc_contacts;
     private List<Contact> mDatas;
     private ContactAdapter recycleAdapter;
-    private Handler handler=null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +46,21 @@ public class ContactsFragment extends Fragment {
         mDatas = new ArrayList<>();
         initData();
         recycleAdapter = new ContactAdapter(getContext(), mDatas);
+        recycleAdapter.setOnItemClickLitener(new OnRecylerItemClickLitener(){
+
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent it =  new Intent(getContext(),ContactDetailActivity.class);
+                Contact contact= mDatas.get(position);
+                it.putExtra("contact", contact);
+                startActivity(it);
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+        });
         rc_contacts.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         rc_contacts.setLayoutManager(layoutManager);
@@ -65,11 +81,18 @@ public class ContactsFragment extends Fragment {
                     JSONArray arr = new JSONArray(result);
                     for(int i = 0;i<arr.length();i++){
                         Contact contact = new Contact();
-                        contact.setName(arr.getJSONObject(i).getString("emp_name"));
-                        contact.setDepartment(arr.getJSONObject(i).getString("dept_name"));
-                        contact.setPosition(arr.getJSONObject(i).getString("posi_name"));
-                        contact.setPhone(arr.getJSONObject(i).getString("telphone"));
-                        contact.setUrl(arr.getJSONObject(i).getString("emp_image"));
+                        contact.setCode(arr.getJSONObject(i).getString("emp_code"));
+                        contact.setName(arr.getJSONObject(i).getString("emp_name"));//名称
+                        contact.setSex(arr.getJSONObject(i).getString("emp_sex"));//性别
+                        contact.setDeptCode(arr.getJSONObject(i).getString("dept_code"));
+                        contact.setDepartment(arr.getJSONObject(i).getString("dept_name"));//部门
+                        contact.setPostCode(arr.getJSONObject(i).getString("posi_code"));
+                        contact.setPosition(arr.getJSONObject(i).getString("posi_name"));//岗位
+                        contact.setBirthDay(arr.getJSONObject(i).getString("birthday"));//出生年月
+                        contact.setEmail(arr.getJSONObject(i).getString("email"));//邮箱
+                        contact.setAddress(arr.getJSONObject(i).getString("address"));//地址
+                        contact.setPhone(arr.getJSONObject(i).getString("telphone"));//电话
+                        contact.setUrl(arr.getJSONObject(i).getString("emp_image"));//url
                         contacts.add(contact);
                     }
                     mDatas.addAll(contacts);
