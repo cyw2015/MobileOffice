@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    tools:context="com.cyw.mobileoffice.activity.DocDetailActivity">
+    <!--toolbar-->
+    <RelativeLayout
+        android:id="@+id/ly_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/bg_topbar">
+
+        <TextView
+            android:id="@+id/tv_topbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="公文详情"
+            android:textColor="@color/text_topbar" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/div_white" />
+    </RelativeLayout>
+    <!--主体-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ly_top_bar"
+        android:background="@color/bg_white">
+<!--标题-->
+        <TextView
+            android:id="@+id/tv_detail_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="25sp" />
+
+        <RelativeLayout
+            android:id="@+id/rl_creater"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_detail_title"
+            android:layout_marginTop="2dp">
+<!--2016-05-31-->
+            <TextView
+                android:id="@+id/tv_detail_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:text=""
+                android:textColor="@android:color/holo_blue_bright"
+                android:textSize="16sp" />
+<!--发文人-->
+            <TextView
+                android:id="@+id/tv_creater"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_toStartOf="@id/tv_detail_date"
+                android:text=""
+                android:textColor="@android:color/holo_blue_bright"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_rec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_creater"
+            android:layout_marginTop="10dp">
+<!--收文人:-->
+            <TextView
+                android:id="@+id/tv_rec_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="收文人:"
+                android:textColor="#ff000000"
+                android:textSize="16sp" />
+<!--收文人列表-->
+            <TextView
+                android:id="@+id/tv_rec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/tv_rec_text"
+                android:text=""
+                android:textColor="@android:color/holo_blue_bright"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_attachment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp">
+<!--附件:-->
+            <TextView
+                android:id="@+id/tv_detail_att"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="附件:"
+                android:textColor="#ff000000"
+                android:textSize="16sp" />
+<!--附件名称-->
+            <TextView
+                android:id="@+id/tv_att"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/tv_detail_att"
+                android:text=""
+                android:textColor="#ff99cc00"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/rl_attachment"
+            android:layout_below="@id/rl_rec">
+<!--内容-->
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:text=""
+                android:textColor="#ff000000"
+                android:textSize="21sp" />
+        </ScrollView>
+    </RelativeLayout>
+</RelativeLayout>
