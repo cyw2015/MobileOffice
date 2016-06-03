@@ -56,7 +56,7 @@ public class PublishDetailActivity extends AppCompatActivity {
         doc = (Document) it.getSerializableExtra("doc");
         tv_detail_title.setText(doc.getTitle());//标题
         tv_detail_date.setText(doc.getEditTime());//创建日期
-        tv_rec.setText(doc.getRecipients());//收件人
+        tv_rec.setText(doc.getRecipients());//收件人  //可能没有
         doc.getState();
         initView();
         initDate(doc.getDocCode());
@@ -175,6 +175,13 @@ public class PublishDetailActivity extends AppCompatActivity {
                     if(obj.has("apprAdvice")){
                         doc.setApprAdvice(obj.getString("apprAdvice"));
                         apprs[3]=doc.getApprAdvice();
+                    }
+                    if(obj.has("recipients")){
+                        doc.setRecipients(obj.getString("recipients"));
+                        tv_rec.setText(doc.getRecipients());
+                    }
+                    if(obj.has("recipientsCode")){
+                        doc.setRecipientsCode(obj.getString("recipientsCode"));
                     }
                     for (int i = 0; i < texts.length; i++) {
                         Map<String, Object> showitem = new HashMap<String, Object>();

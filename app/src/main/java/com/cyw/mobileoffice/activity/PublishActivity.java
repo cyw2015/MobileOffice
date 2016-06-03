@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cyw.mobileoffice.R;
@@ -45,12 +46,13 @@ public class PublishActivity extends AppCompatActivity {
     private AdapterView.AdapterContextMenuInfo selectMenuInfo;
     private AlertDialog alert = null;
     private AlertDialog.Builder builder = null;
-
+    private TextView tv_add_doc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish);
         pullToRefresh = (PullToRefreshListView) findViewById(R.id.pullToRefresh);
+        tv_add_doc = (TextView) findViewById(R.id.tv_add_doc);
         data = new ArrayList<>();
         page = 1;
         //初始数据
@@ -127,6 +129,13 @@ public class PublishActivity extends AppCompatActivity {
         endLabels.setPullLabel("上拉刷新...");// 刚下拉时，显示的提示
         endLabels.setRefreshingLabel("正在载入...");// 刷新时
         endLabels.setReleaseLabel("放开刷新...");// 下来达到一定距离时，显示的提示
+
+        tv_add_doc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(PublishActivity.this,"add",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     //初始数据

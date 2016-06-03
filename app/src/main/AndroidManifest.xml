@@ -33,7 +33,11 @@
         <activity
             android:name=".activity.PublishActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activity.PublishDetailActivity"
+        <activity
+            android:name=".activity.PublishDetailActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".activity.ApproveActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
