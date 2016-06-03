@@ -1,20 +1,67 @@
 package com.cyw.mobileoffice.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by cyw on 2016/5/30.
  */
-public class Document {
+public class Document implements Serializable{
 
-    private String docCode;
-    private String title;
-    private String creater;
-    private String createrName;
-    private String date;
-    private String content;
-    private String recipientsCode;
-    private String recipients;
-    private String attachment;
-    private String attachmentPath;
+    private String docCode;//公文编号
+    private String title;//公文标题
+    private String creater;//创建人编号
+    private String createrName;//创建人
+    private String date;//发布日期
+    private String content;//内容
+    private String recipientsCode;//收文人编号
+    private String recipients;//收文人
+    private String attachment;//附件
+    private String attachmentPath;//附件路径
+    private String editTime;//创建时间
+    private String state;//状态
+    private String apprName;//审批人
+    private String apprAdvice;//审批意见
+    private String apprDate;//审批日期
+
+    public String getApprName() {
+        return apprName;
+    }
+
+    public void setApprName(String apprName) {
+        this.apprName = apprName;
+    }
+
+    public String getApprAdvice() {
+        return apprAdvice;
+    }
+
+    public void setApprAdvice(String apprAdvice) {
+        this.apprAdvice = apprAdvice;
+    }
+
+    public String getApprDate() {
+        return apprDate;
+    }
+
+    public void setApprDate(String apprDate) {
+        this.apprDate = apprDate;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getEditTime() {
+        return editTime;
+    }
+
+    public void setEditTime(String editTime) {
+        this.editTime = editTime;
+    }
 
     public String getRecipientsCode() {
         return recipientsCode;

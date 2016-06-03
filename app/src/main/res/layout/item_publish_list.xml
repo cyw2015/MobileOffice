@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="beforeDescendants"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"><!-- 为突出卡片效果，需设置左右padding,上下通过listView的divider设置 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/card_background_selector"
+        android:descendantFocusability="afterDescendants"
+        android:paddingBottom="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp"><!-- 给每个item增加background -->
+
+        <TextView
+            android:id="@+id/tv_pub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:singleLine="true"
+            android:text="公文标题"
+            android:textColor="@color/item_message_creater" />
+        <TextView
+            android:id="@+id/tv_appr_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="审核状态:"
+            android:textColor="#ffff0000"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/tv_pub_title"
+            />
+        <TextView
+            android:id="@+id/tv_appr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="未送审"
+            android:textColor="#ffff0000"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/tv_pub_title"
+            android:layout_toEndOf="@id/tv_appr_state"
+            />
+        <TextView
+            android:id="@+id/tv_create_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/tv_pub_title"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:singleLine="true"
+            android:text="2016-03-15"
+            android:textColor="@android:color/holo_blue_light" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_pub_title"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/tv_create_date"
+            android:layout_marginTop="5dp"
+            android:singleLine="true"
+            android:text="创建时间:"
+            android:textColor="@android:color/holo_blue_light" />
+    </RelativeLayout>
+</FrameLayout>

@@ -1,6 +1,7 @@
 package com.cyw.mobileoffice.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,9 +10,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
-import android.widget.Toast;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.cyw.mobileoffice.R;
+import com.cyw.mobileoffice.activity.PublishActivity;
 import com.cyw.mobileoffice.adapter.GridAdapter;
 import com.cyw.mobileoffice.entity.FuncItem;
 
@@ -53,7 +56,17 @@ public class FacilityFragment extends Fragment {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(),"你点击了.."+position+"项",Toast.LENGTH_SHORT).show();
+                TextView tv = (TextView) view.findViewById(R.id.tv_func);
+                String funStr = (String) tv.getText();
+//                Toast.makeText(getContext(), funStr, Toast.LENGTH_SHORT).show();
+                if(funStr.equals("查看公文"))
+                {
+                    RadioButton rb_message = (RadioButton) getActivity().findViewById(R.id.rb_message);
+                    rb_message.setChecked(true);
+                }else if(funStr.equals("公文发布")){
+                    Intent it = new Intent(getContext(), PublishActivity.class);
+                    startActivity(it);
+                }
             }
         });
         return view;
