@@ -8,10 +8,19 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cyw.mobileoffice.R;
 import com.cyw.mobileoffice.adapter.TabFragmentPagerAdapter;
+import com.cyw.mobileoffice.entity.ErrorMessage;
+import com.cyw.mobileoffice.util.AppURL;
 import com.cyw.mobileoffice.util.SharedHelper;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
 
 public class OfficeActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
@@ -37,6 +46,52 @@ public class OfficeActivity extends AppCompatActivity implements RadioGroup.OnCh
         tAdapter =new TabFragmentPagerAdapter(getSupportFragmentManager());
         bindViews();
         rb_contacts.setChecked(true);
+        //获取用户权限资源信息
+        getResCode();
+    }
+
+    //获取权限信息
+    private void getResCode(){
+        String user = (String) SharedHelper.get(OfficeActivity.this,"currentUser","");
+        if(user!=null){
+            RequestParams params =  new RequestParams(AppURL.GETRESCODE);
+            params.addQueryStringParameter("userCode",user);
+            x.http().post(params,new Callback.CommonCallback<String>(){
+
+                @Override
+                public void onSuccess(String result) {
+                    Gson gson = new Gson();
+                    try {
+                        ErrorMessage msg = gson.fromJson(result, new TypeToken<ErrorMessage>() {
+                        }.getType());
+                        int error = msg.getError();
+                        if (error == 0) {
+                            SharedHelper.put(OfficeActivity.this,"myResCodes",msg.getErrorMsg());
+//                          Toast.makeText(OfficeActivity.this,msg.getErrorMsg(),Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(OfficeActivity.this,msg.getErrorMsg(),Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onError(Throwable ex, boolean isOnCallback) {
+
+                }
+
+                @Override
+                public void onCancelled(CancelledException cex) {
+
+                }
+
+                @Override
+                public void onFinished() {
+
+                }
+            });
+        }
     }
 
     /**
@@ -128,4 +183,9 @@ public class OfficeActivity extends AppCompatActivity implements RadioGroup.OnCh
         startActivity(intent);
 //        Toast.makeText(OfficeActivity.this,"设置",Toast.LENGTH_SHORT).show();
     }
+    public void updatePassword(View v){
+        Intent intent  = new Intent(OfficeActivity.this,UpdatePwdActivity.class);
+        startActivity(intent);
+    }
+
 }

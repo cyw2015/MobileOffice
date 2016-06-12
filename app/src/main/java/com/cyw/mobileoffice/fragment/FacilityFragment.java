@@ -18,6 +18,7 @@ import com.cyw.mobileoffice.activity.ApproveActivity;
 import com.cyw.mobileoffice.activity.PublishActivity;
 import com.cyw.mobileoffice.adapter.GridAdapter;
 import com.cyw.mobileoffice.entity.FuncItem;
+import com.cyw.mobileoffice.util.SharedHelper;
 
 import java.util.ArrayList;
 
@@ -35,16 +36,23 @@ public class FacilityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fg_facility, container, false);
         gv_Func = (GridView) view.findViewById(R.id.gv_func);
+        String  myResCodes= (String) SharedHelper.get(getContext(),"myResCodes","");
         mData = new ArrayList<FuncItem>();
-        mData.add(new FuncItem(R.mipmap.look, "查看公文"));
-        mData.add(new FuncItem(R.mipmap.publish, "公文发布"));
-        mData.add(new FuncItem(R.mipmap.approve, "公文审批"));
-        mData.add(new FuncItem(R.mipmap.department, "部门管理"));
-        mData.add(new FuncItem(R.mipmap.position, "岗位管理"));
-        mData.add(new FuncItem(R.mipmap.employee, "员工管理"));
-        mData.add(new FuncItem(R.mipmap.role, "角色管理"));
-        mData.add(new FuncItem(R.mipmap.auth, "权限管理"));
-        mData.add(new FuncItem(R.mipmap.users, "用户管理"));
+        if(myResCodes!=null&&myResCodes.contains("ROLE_RES_DOC_LOOK")){
+            mData.add(new FuncItem(R.mipmap.look, "查看公文"));
+        }
+        if(myResCodes!=null&&myResCodes.contains("ROLE_RES_DOC_PUB")){
+            mData.add(new FuncItem(R.mipmap.publish, "公文发布"));
+        }
+        if(myResCodes!=null&&myResCodes.contains("ROLE_RES_DOC_APPROVE")){
+            mData.add(new FuncItem(R.mipmap.approve, "公文审批"));
+        }
+//        mData.add(new FuncItem(R.mipmap.department, "部门管理"));
+//        mData.add(new FuncItem(R.mipmap.position, "岗位管理"));
+//        mData.add(new FuncItem(R.mipmap.employee, "员工管理"));
+//        mData.add(new FuncItem(R.mipmap.role, "角色管理"));
+//        mData.add(new FuncItem(R.mipmap.auth, "权限管理"));
+//        mData.add(new FuncItem(R.mipmap.users, "用户管理"));
         mAdapter = new GridAdapter<FuncItem>(mData, R.layout.item_facility) {
 
             @Override

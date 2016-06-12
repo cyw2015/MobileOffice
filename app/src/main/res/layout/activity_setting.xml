@@ -10,16 +10,19 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/bg_topbar">
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="取消"
             android:id="@+id/tv_bar_cancel"
-            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="20dp"
-            android:textColor="@color/text_topbar"
-            />
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:text="取消"
+            android:textColor="@color/text_topbar" />
+
         <TextView
             android:id="@+id/tv_topbar"
             android:layout_width="wrap_content"
@@ -28,16 +31,19 @@
             android:gravity="center"
             android:text="个人信息"
             android:textColor="@color/text_topbar" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="完成"
             android:id="@+id/tv_bar_finish"
-            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp"
-            android:textColor="@color/text_topbar"
-            />
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:text="完成"
+            android:textColor="@color/text_topbar" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -45,293 +51,302 @@
             android:background="@color/div_white" />
 
     </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/ly_top_bar"
-        >
+        android:layout_below="@id/ly_top_bar">
+
         <RelativeLayout
             android:id="@+id/rl_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <View
-                style="@style/col_view"
                 android:id="@+id/col1"
-                android:layout_marginTop="35dp"
-                />
+                style="@style/col_view"
+                android:layout_marginTop="35dp" />
+
             <LinearLayout
                 android:id="@+id/ly_code"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/col1"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
-                >
+                android:orientation="horizontal">
+
                 <TextView
-                    android:text="编号:"
-                    android:layout_marginStart="20dp"
-                    style="@style/list_text_base"
                     android:id="@+id/tv_code_text"
-                    />
-                <TextView
-                    android:text="编号"
-                    android:layout_marginStart="20dp"
                     style="@style/list_text_base"
+                    android:layout_marginStart="20dp"
+                    android:text="编号:" />
+
+                <TextView
                     android:id="@+id/tv_code"
-                    />
+                    style="@style/list_text_base"
+                    android:layout_marginStart="20dp"
+                    android:text="编号" />
             </LinearLayout>
+
             <View
-                style="@style/col_view"
                 android:id="@+id/col2"
-                android:layout_marginTop="10dp"
+                style="@style/col_view"
                 android:layout_below="@id/ly_code"
-                />
+                android:layout_marginTop="10dp" />
+
             <LinearLayout
                 android:id="@+id/ly_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/col2"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
-                >
+                android:orientation="horizontal">
+
                 <TextView
-                    android:text="姓名:"
-                    android:layout_marginStart="20dp"
-                    style="@style/list_text_base"
                     android:id="@+id/tv_name_text"
-                    />
-                <EditText
-                    android:text="姓名"
-                    android:layout_marginStart="20dp"
                     style="@style/list_text_base"
+                    android:layout_marginStart="20dp"
+                    android:text="姓名:" />
+
+                <EditText
                     android:id="@+id/et_name"
-                    android:layout_width="match_parent" />
+                    style="@style/list_text_base"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:text="姓名" />
             </LinearLayout>
+
             <View
-                style="@style/col_view"
                 android:id="@+id/col3"
-                android:layout_marginTop="10dp"
+                style="@style/col_view"
                 android:layout_below="@id/ly_name"
-                />
+                android:layout_marginTop="10dp" />
+
             <LinearLayout
                 android:id="@+id/ly_dept"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/col3"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
-                >
+                android:orientation="horizontal">
+
                 <TextView
-                    android:text="部门:"
-                    android:layout_marginStart="20dp"
-                    style="@style/list_text_base"
                     android:id="@+id/tv_dept_text"
-                    />
-                <TextView
-                    android:text="部门"
-                    android:layout_marginStart="20dp"
                     style="@style/list_text_base"
-                    android:id="@+id/tv_dept"/>
+                    android:layout_marginStart="20dp"
+                    android:text="部门:" />
+
+                <TextView
+                    android:id="@+id/tv_dept"
+                    style="@style/list_text_base"
+                    android:layout_marginStart="20dp"
+                    android:text="部门" />
             </LinearLayout>
+
             <View
-                style="@style/col_view"
                 android:id="@+id/col4"
-                android:layout_marginTop="10dp"
+                style="@style/col_view"
                 android:layout_below="@id/ly_dept"
-                />
+                android:layout_marginTop="10dp" />
+
             <LinearLayout
                 android:id="@+id/ly_posi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/col4"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
-                >
+                android:orientation="horizontal">
+
                 <TextView
-                    android:text="岗位:"
-                    android:layout_marginStart="20dp"
-                    style="@style/list_text_base"
                     android:id="@+id/tv_posi_text"
-                    />
-                <TextView
-                    android:text="岗位"
-                    android:layout_marginStart="20dp"
                     style="@style/list_text_base"
-                    android:id="@+id/tv_posi"/>
+                    android:layout_marginStart="20dp"
+                    android:text="岗位:" />
+
+                <TextView
+                    android:id="@+id/tv_posi"
+                    style="@style/list_text_base"
+                    android:layout_marginStart="20dp"
+                    android:text="岗位" />
             </LinearLayout>
+
             <View
-                style="@style/col_view"
                 android:id="@+id/col5"
-                android:layout_marginTop="10dp"
-                android:layout_below="@id/ly_posi"
-                />
-            <View
                 style="@style/col_view"
+                android:layout_below="@id/ly_posi"
+                android:layout_marginTop="10dp" />
+
+            <View
                 android:id="@+id/col6"
-                android:layout_marginTop="30dp"
+                style="@style/col_view"
                 android:layout_below="@id/col5"
-                />
+                android:layout_marginTop="30dp" />
+
             <LinearLayout
                 android:id="@+id/ly_sex"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/col6"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
-                >
+                android:orientation="horizontal">
+
                 <TextView
-                    android:text="性别:"
-                    android:layout_marginStart="20dp"
-                    style="@style/list_text_base"
                     android:id="@+id/tv_sex_text"
-                    />
-              <RadioGroup
-                  android:id="@+id/rg_sex"
-                  android:layout_marginStart="20dp"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:orientation="horizontal">
-                 <RadioButton
-                     android:id="@+id/rb_boy"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="男"
-                     android:checked="true"
-                     />
-                  <RadioButton
-                      android:id="@+id/rb_girl"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="女"
-                      android:checked="false"
-                      />
-              </RadioGroup>
+                    style="@style/list_text_base"
+                    android:layout_marginStart="20dp"
+                    android:text="性别:" />
+
+                <RadioGroup
+                    android:id="@+id/rg_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_boy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="男" />
+
+                    <RadioButton
+                        android:id="@+id/rb_girl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:text="女" />
+                </RadioGroup>
             </LinearLayout>
+
             <View
-                style="@style/col_view"
                 android:id="@+id/col7"
-                android:layout_marginTop="10dp"
+                style="@style/col_view"
                 android:layout_below="@id/ly_sex"
-                />
+                android:layout_marginTop="10dp" />
+
             <LinearLayout
                 android:id="@+id/ly_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/col7"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
-                >
+                android:orientation="horizontal">
+
                 <TextView
-                    android:text="电话:"
-                    android:layout_marginStart="20dp"
-                    style="@style/list_text_base"
                     android:id="@+id/tv_phone_text"
-                    />
-                <EditText
-                    android:text="180809038"
-                    android:inputType="phone"
+                    style="@style/list_text_base"
                     android:layout_marginStart="20dp"
+                    android:text="电话:" />
+
+                <EditText
+                    android:id="@+id/et_phone"
                     style="@style/list_text_base"
                     android:layout_width="match_parent"
-                    android:id="@+id/et_phone"/>
+                    android:layout_marginStart="20dp"
+                    android:inputType="phone"
+                    android:text="180809038" />
             </LinearLayout>
+
             <View
-                style="@style/col_view"
                 android:id="@+id/col8"
-                android:layout_marginTop="10dp"
+                style="@style/col_view"
                 android:layout_below="@id/ly_phone"
-                />
+                android:layout_marginTop="10dp" />
+
             <LinearLayout
                 android:id="@+id/ly_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/col8"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
-                >
+                android:orientation="horizontal">
+
                 <TextView
-                    android:text="邮箱:"
-                    android:layout_marginStart="20dp"
-                    style="@style/list_text_base"
                     android:id="@+id/tv_email_text"
-                    />
-                <EditText
-                    android:text=""
-                    android:inputType="textEmailAddress"
+                    style="@style/list_text_base"
                     android:layout_marginStart="20dp"
+                    android:text="邮箱:" />
+
+                <EditText
+                    android:id="@+id/et_email"
                     style="@style/list_text_base"
                     android:layout_width="match_parent"
-                    android:id="@+id/et_email"/>
+                    android:layout_marginStart="20dp"
+                    android:inputType="textEmailAddress"
+                    android:text="" />
             </LinearLayout>
+
             <View
-                style="@style/col_view"
                 android:id="@+id/col9"
-                android:layout_marginTop="10dp"
+                style="@style/col_view"
                 android:layout_below="@id/ly_email"
-                />
+                android:layout_marginTop="10dp" />
+
             <LinearLayout
                 android:id="@+id/ly_birth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/col9"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
-                >
+                android:orientation="horizontal">
+
                 <TextView
-                    android:text="出生日期:"
-                    android:layout_marginStart="20dp"
-                    style="@style/list_text_base"
                     android:id="@+id/tv_birth_text"
-                    />
-                <TextView
-                    android:text="2016-6-12"
+                    style="@style/list_text_base"
                     android:layout_marginStart="20dp"
-                    style="@style/list_text_base"
-                    android:id="@+id/tv_birth"/>
+                    android:text="出生日期:" />
+
                 <TextView
-                    android:text=">"
-                    android:gravity="end"
-                    android:layout_marginEnd="20dp"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_birth"
                     style="@style/list_text_base"
-                    />
+                    android:layout_marginStart="20dp"
+                    android:text="2016-6-12" />
+
+                <TextView
+                    style="@style/list_text_base"
+                    android:layout_width="match_parent"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="end"
+                    android:text=">" />
             </LinearLayout>
+
             <View
-                style="@style/col_view"
                 android:id="@+id/col10"
-                android:layout_marginTop="10dp"
+                style="@style/col_view"
                 android:layout_below="@id/ly_birth"
-                />
+                android:layout_marginTop="10dp" />
+
             <LinearLayout
                 android:id="@+id/ly_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/col10"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
-                >
+                android:orientation="horizontal">
+
                 <TextView
-                    android:text="住址:"
-                    android:layout_marginStart="20dp"
-                    style="@style/list_text_base"
                     android:id="@+id/tv_address_text"
-                    />
-                <EditText
-                    android:text="住址"
-                    android:inputType="textMultiLine"
+                    style="@style/list_text_base"
                     android:layout_marginStart="20dp"
+                    android:text="住址:" />
+
+                <EditText
+                    android:id="@+id/et_address"
                     style="@style/list_text_base"
                     android:layout_width="match_parent"
-                    android:id="@+id/et_address"/>
+                    android:layout_marginStart="20dp"
+                    android:inputType="textMultiLine"
+                    android:text="住址" />
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>

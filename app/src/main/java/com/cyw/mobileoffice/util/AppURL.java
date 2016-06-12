@@ -20,4 +20,6 @@ public class AppURL {
     public static final String UPDATEDOCAPPR=BASE+"/document/updateDocAppr.do";//审批
     public static final String GETPERSONDETAIL=BASE+"/person/getEmployDetail.do";//获取详情
     public static final String UPDATEPERSON = BASE+"/person/updatePerson.do";//修改资料
+    public static final String GETRESCODE = BASE+"/sys/getResCode.do";//获取用户所有权限
+    public static final String UPDATEPASSWORD=BASE+"/sys/updatePassword.do";//修改密码
 }

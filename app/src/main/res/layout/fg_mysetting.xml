@@ -50,8 +50,9 @@
         android:layout_below="@id/col2"
         android:layout_marginTop="10dp"
         android:src="@mipmap/tab_contacts_pressed"
-        android:text="关于"
-        myspace:hasNext="false" />
+        android:text="修改密码"
+        android:onClick="updatePassword"
+        myspace:hasNext="true" />
 
     <View
         android:id="@+id/col3"
