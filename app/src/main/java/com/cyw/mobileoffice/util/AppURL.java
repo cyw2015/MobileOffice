@@ -17,4 +17,5 @@ public class AppURL {
     public static final String SendAppr = BASE + "/document/sendAppr.do";//送审
     public static final String DELETEPUBDOC = BASE+"/document/deletePubDoc.do";//删除发布的公文
     public static final String APPROVALDATA=BASE+"/document/getApprovalPage.do";//审核公文
+    public static final String UPDATEDOCAPPR=BASE+"/document/updateDocAppr.do";//审批
 }

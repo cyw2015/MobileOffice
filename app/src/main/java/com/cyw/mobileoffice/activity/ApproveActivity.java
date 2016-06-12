@@ -1,12 +1,17 @@
 package com.cyw.mobileoffice.activity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.cyw.mobileoffice.R;
 import com.cyw.mobileoffice.adapter.GridAdapter;
@@ -33,6 +38,9 @@ public class ApproveActivity extends AppCompatActivity {
     private AVLoadingIndicatorDialog myDialog;
     private int page = 1;
     private String rowsStr = "20";
+    private AdapterView.AdapterContextMenuInfo selectMenuInfo;
+    private AlertDialog alert = null;
+    private AlertDialog.Builder builder = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,6 +115,40 @@ public class ApproveActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
+
+        pullToRefresh.getRefreshableView().setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
+            public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+                MenuInflater menuInflater = getMenuInflater();
+                menuInflater.inflate(R.menu.menu_appr_act, menu);
+                menu.setHeaderTitle("选择操作");
+                selectMenuInfo = (AdapterView.AdapterContextMenuInfo) menuInfo;
+            }
+        });
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        if (info == null) {
+            info = selectMenuInfo;
+        }
+        switch (item.getItemId()) {
+            case R.id.menu_appr:
+                apprDoc(info.position);
+                return true;
+        }
+        return super.onContextItemSelected(item);
+    }
+
+    public void apprDoc(final int position){
+        final Document doc = data.get(position - 1);
+        if (doc.getState().equals("1")) {
+            Intent intent = new Intent(ApproveActivity.this,ApproveAddActivity.class);
+            intent.putExtra("doc",doc);
+            startActivity(intent);
+        }else {
+            Toast.makeText(ApproveActivity.this, "只能审批待审批的公文", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void initData(){
@@ -117,8 +159,8 @@ public class ApproveActivity extends AppCompatActivity {
         RequestParams params = new RequestParams(AppURL.APPROVALDATA);
         params.addQueryStringParameter("page", String.valueOf(page));
         params.addQueryStringParameter("rows", rowsStr);
-        params.addQueryStringParameter("sort", "apprState");
-        params.addQueryStringParameter("order", "asc");
+        params.addQueryStringParameter("sort", "editTime");
+        params.addQueryStringParameter("order", "desc");
         x.http().post(params,  new Callback.CommonCallback<String>() {
 
             @Override

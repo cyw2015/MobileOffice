@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    tools:context="com.cyw.mobileoffice.activity.ApproveAddActivity">
+
+    <RelativeLayout
+        android:id="@+id/ly_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/bg_topbar">
+
+        <TextView
+            android:id="@+id/tv_topbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="审批公文"
+            android:textColor="@color/text_topbar" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/div_white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ly_top_bar"
+        android:background="@color/bg_topbar">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/col1"
+            android:layout_marginTop="30dp"
+            android:background="@color/div_white" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_code_text"
+            android:text="公文编号:"
+            android:layout_below="@id/col1"
+            android:layout_marginTop="7dp"
+            android:textSize="18sp"
+            android:textColor="#ff000000"
+            android:layout_marginStart="20dp"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公文编号"
+            android:layout_marginStart="10dp"
+            android:singleLine="true"
+            android:id="@+id/tv_code"
+            android:textColor="@color/item_message_creater"
+            android:layout_marginTop="7dp"
+            android:textSize="18sp"
+            android:layout_below="@id/col1"
+            android:layout_toEndOf="@+id/tv_code_text" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/col2"
+            android:layout_below="@id/tv_code_text"
+            android:layout_marginTop="7dp"
+            android:background="@color/div_white" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_title_text"
+            android:text="公文标题:"
+            android:layout_below="@id/col2"
+            android:layout_marginTop="7dp"
+            android:textSize="18sp"
+            android:textColor="#ff000000"
+            android:layout_marginStart="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公文标题"
+            android:layout_marginStart="10dp"
+            android:singleLine="true"
+            android:id="@+id/tv_title"
+            android:textColor="@color/item_message_creater"
+            android:layout_marginTop="7dp"
+            android:textSize="18sp"
+            android:layout_below="@id/col2"
+            android:layout_toEndOf="@+id/tv_title_text" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/col3"
+            android:layout_below="@id/tv_title_text"
+            android:layout_marginTop="7dp"
+            android:background="@color/div_white" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_appr_state"
+            android:layout_below="@id/col3"
+            android:text="是否通过:"
+            android:layout_marginTop="19dp"
+            android:textSize="18sp"
+            android:textColor="#ff000000"
+            android:layout_marginStart="20dp"
+            />
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/col3"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="7dp"
+            android:id="@+id/rg_appr_state"
+            android:layout_toEndOf="@id/tv_appr_state"
+            android:orientation="horizontal"
+            >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb_appr_ok"
+                android:text="通过"
+                android:textColor="#ff000000"
+                android:checked="true"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="不通过"
+                android:id="@+id/rb_appr_no"
+                android:textColor="#ff000000"
+                android:checked="false" />
+        </RadioGroup>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/col4"
+            android:layout_below="@id/rg_appr_state"
+            android:layout_marginTop="7dp"
+            android:background="@color/div_white" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_appr_advice"
+            android:layout_below="@id/col4"
+            android:text="审批意见:"
+            android:layout_marginTop="19dp"
+            android:textSize="18sp"
+            android:textColor="#ff000000"
+            android:layout_marginStart="20dp" />
+        <Button
+            android:layout_marginTop="2dp"
+            android:id="@+id/btn_appr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ff000000"
+            android:onClick="submitAppr"
+            android:text="提交"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_appr_advice"
+            android:id="@+id/et_appr_advice"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:textColor="#ff000000"
+            android:scrollbars="vertical"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_above="@id/btn_appr" />
+    </RelativeLayout>
+</RelativeLayout>
