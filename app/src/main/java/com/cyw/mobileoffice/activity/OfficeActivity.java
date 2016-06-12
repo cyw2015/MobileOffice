@@ -122,4 +122,10 @@ public class OfficeActivity extends AppCompatActivity implements RadioGroup.OnCh
         startActivity(it);
         finish();
     }
+
+    public void personSetting(View v){
+        Intent intent =  new Intent(OfficeActivity.this,SettingActivity.class);
+        startActivity(intent);
+//        Toast.makeText(OfficeActivity.this,"设置",Toast.LENGTH_SHORT).show();
+    }
 }

@@ -18,4 +18,6 @@ public class AppURL {
     public static final String DELETEPUBDOC = BASE+"/document/deletePubDoc.do";//删除发布的公文
     public static final String APPROVALDATA=BASE+"/document/getApprovalPage.do";//审核公文
     public static final String UPDATEDOCAPPR=BASE+"/document/updateDocAppr.do";//审批
+    public static final String GETPERSONDETAIL=BASE+"/person/getEmployDetail.do";//获取详情
+    public static final String UPDATEPERSON = BASE+"/person/updatePerson.do";//修改资料
 }

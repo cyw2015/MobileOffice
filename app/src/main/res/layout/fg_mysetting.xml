@@ -30,7 +30,8 @@
         android:layout_height="30dp"
         android:layout_below="@id/col1"
         android:layout_marginTop="10dp"
-        android:text="个人设置"
+        android:text="修改资料"
+        android:onClick="personSetting"
         android:src="@mipmap/tab_contacts_normal"
         myspace:hasNext="true" />
 

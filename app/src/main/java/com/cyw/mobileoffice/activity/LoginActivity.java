@@ -72,6 +72,9 @@ public class LoginActivity extends AppCompatActivity {
                 // 得到ImageOptions对象
                 .build();
         x.image().bind(ivEmp,imgUrl, options);
+        if(autoLogin.isChecked()){
+            doLogin(username.getText().toString(), password.getText().toString());
+        }
     }
 
     /**
@@ -98,15 +101,15 @@ public class LoginActivity extends AppCompatActivity {
                 SharedHelper.remove(this, "remember");
                 SharedHelper.remove(this, "autoLogin");
             }
-            myDialog=new AVLoadingIndicatorDialog(this);
-            myDialog.setMessage("Loading");
-            myDialog.setCancelable(false);
-            myDialog.show();
             doLogin(code,pass);
         }
     }
 
     public void doLogin(final String username, String password) {
+        myDialog=new AVLoadingIndicatorDialog(this);
+        myDialog.setMessage("Loading");
+        myDialog.setCancelable(false);
+        myDialog.show();
         RequestParams params =  new RequestParams(AppURL.LOGINURL);
         params.addQueryStringParameter("username",username);
         params.addQueryStringParameter("password",password);

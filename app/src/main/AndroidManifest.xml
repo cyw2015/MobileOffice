@@ -39,8 +39,11 @@
         <activity
             android:name=".activity.ApproveActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activity.ApproveAddActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
+        <activity
+            android:name=".activity.ApproveAddActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".activity.SettingActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             />
     </application>
 
