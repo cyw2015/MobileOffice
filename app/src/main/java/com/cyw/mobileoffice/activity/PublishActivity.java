@@ -36,7 +36,7 @@ import org.xutils.x;
 
 import java.util.ArrayList;
 
-public class PublishActivity extends AppCompatActivity {
+public class PublishActivity extends AppCompatActivity implements View.OnClickListener {
     private PullToRefreshListView pullToRefresh;
     private ArrayList<Document> data = new ArrayList<>();
     GridAdapter<Document> adapter = null;
@@ -47,12 +47,14 @@ public class PublishActivity extends AppCompatActivity {
     private AlertDialog alert = null;
     private AlertDialog.Builder builder = null;
     private TextView tv_add_doc;
+    private TextView tv_bar_cancel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish);
         pullToRefresh = (PullToRefreshListView) findViewById(R.id.pullToRefresh);
         tv_add_doc = (TextView) findViewById(R.id.tv_add_doc);
+        tv_bar_cancel = (TextView) findViewById(R.id.tv_bar_cancel);
         data = new ArrayList<>();
         page = 1;
         //初始数据
@@ -130,12 +132,8 @@ public class PublishActivity extends AppCompatActivity {
         endLabels.setRefreshingLabel("正在载入...");// 刷新时
         endLabels.setReleaseLabel("放开刷新...");// 下来达到一定距离时，显示的提示
 
-        tv_add_doc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(PublishActivity.this,"add",Toast.LENGTH_SHORT).show();
-            }
-        });
+        tv_add_doc.setOnClickListener(this);
+        tv_bar_cancel.setOnClickListener(this);
     }
 
     //初始数据
@@ -371,6 +369,20 @@ public class PublishActivity extends AppCompatActivity {
 
         } else {
             Toast.makeText(PublishActivity.this, "只能修改未送审的公文", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.tv_add_doc:
+                Intent intent  = new Intent (PublishActivity.this,AddDocActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.tv_bar_cancel:
+                finish();
+                break;
         }
     }
 
