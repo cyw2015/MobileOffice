@@ -24,4 +24,5 @@ public class AppURL {
     public static final String UPDATEPASSWORD=BASE+"/sys/updatePassword.do";//修改密码
 
     public static final String ADDPUBDOC = BASE+"/document/addDocPub.do";//添加公文
+    public static final String UPDATEPUBDOC = BASE+"/document/updateDocPub.do";//修改公文
 }

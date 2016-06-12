@@ -366,7 +366,9 @@ public class PublishActivity extends AppCompatActivity implements View.OnClickLi
     private void editPub(int position) {
         Document doc = data.get(position - 1);
         if (doc.getState().equals("0")) {
-
+            Intent intent = new Intent(PublishActivity.this,EditDocActivity.class);
+            intent.putExtra("doc",doc);
+            startActivity(intent);
         } else {
             Toast.makeText(PublishActivity.this, "只能修改未送审的公文", Toast.LENGTH_SHORT).show();
         }
