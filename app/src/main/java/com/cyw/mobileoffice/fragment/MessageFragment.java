@@ -128,9 +128,11 @@ public class MessageFragment extends Fragment implements FlyRefreshLayout.OnPull
         });
     }
     private void addDocument() {
-        Document Document = new Document("李秋8","jjjjj","总裁","19999909090");
-        mDataSet.add(0, Document);
-        mAdapter.notifyItemInserted(0);
+        mDataSet.clear();
+        initDataSet();
+//        Document Document = new Document("李秋8","jjjjj","总裁","19999909090");
+//        mDataSet.add(0, Document);
+//        mAdapter.notifyItemInserted(0);
         mLayoutManager.scrollToPosition(0);
     }
 
@@ -159,6 +161,6 @@ public class MessageFragment extends Fragment implements FlyRefreshLayout.OnPull
 
     @Override
     public void onRefreshAnimationEnd(FlyRefreshLayout view) {
-//        addDocument();
+        addDocument();
     }
 }

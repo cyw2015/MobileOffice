@@ -4,7 +4,8 @@ package com.cyw.mobileoffice.util;
  * Created by cyw on 2016/5/27.
  */
 public class AppURL {
-    public final static String BASE = "http://cyw.ngrok.cc";//基础
+//    public final static String BASE = "http://cyw.ngrok.cc";//基础
+public final static String BASE = "http://192.168.43.204:8080";
     public final static String LOGINURL = BASE + "/login";//登录
     public final static String GETEMPIMAGEURL = BASE + "/person/getUserEmpImage.do";//获取图片路径
     public final static String GETCONTACTS = BASE + "/person/getContacts.do";/*通讯录*/
